@@ -21,7 +21,7 @@ export default function ExercisesList() {
     const [exercises, SetExercises] = useState([]);
 
     useEffect(() => {
-        axios.get("https://mernnn.herokuapp.com/exercises/")
+        axios.get("/exercises/")
             .then(response => {
                 SetExercises(response.data);
             })
