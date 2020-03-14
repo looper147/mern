@@ -21,7 +21,7 @@ export default function ExercisesList() {
     const [exercises, SetExercises] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/exercises/")
+        axios.get("https://mernnn.herokuapp.com/exercises/")
             .then(response => {
                 SetExercises(response.data);
             })
@@ -29,7 +29,7 @@ export default function ExercisesList() {
     }, [])
 
     function deleteExercise(id) {
-        axios.delete(`http://localhost:5000/exercises/${id}`)
+        axios.delete(`https://mernnn.herokuapp.com/exercises/${id}`)
             .then(res => console.log(res.data));
         SetExercises(exercises.filter(el => el._id !== id))
     }

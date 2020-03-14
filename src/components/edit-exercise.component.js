@@ -13,7 +13,7 @@ export default function EditExercise(props) {
 
     let history = useHistory();
     useEffect(() => {
-        axios.get(`http://localhost:5000/exercises/${props.match.params.id}`)
+        axios.get(`https://mernnn.herokuapp.com/exercises/${props.match.params.id}`)
             .then(response => {
                 setUsername(response.data.username);
                 setDescription(response.data.description)
@@ -23,7 +23,7 @@ export default function EditExercise(props) {
             .catch((err) => {
                 console.log(err);
             })
-        axios.get("http://localhost:5000/users/")
+        axios.get("https://mernnn.herokuapp.com/users/")
             .then(response => {
                 if (response.data.length > 0) {
                     setUsers(response.data.map(user => user.username))
@@ -52,7 +52,7 @@ export default function EditExercise(props) {
             date: date
         }
         console.log(exercise);
-        axios.post(`http://localhost:5000/exercises/update/${props.match.params.id}`, exercise)
+        axios.post(`https://mernnn.herokuapp.com/exercises/update/${props.match.params.id}`, exercise)
             .then(res => console.log(res.data))
 
         history.push("/")
