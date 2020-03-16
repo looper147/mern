@@ -13,7 +13,7 @@ export default function CreateExercise(props) {
 
     let history = useHistory();
     useEffect(() => {
-        axios.get("https://mernnn.herokuapp.com/user/")
+        axios.get("/users/")
             .then(response => {
                 if (response.data.length > 0) {
                     setUsers(response.data.map(user => user.username))
@@ -44,7 +44,7 @@ export default function CreateExercise(props) {
             date: date
         }
         console.log(exercise);
-        axios.post('https://mernnn.herokuapp.com/exercises/add', exercise)
+        axios.post('/exercises/add', exercise)
             .then(res => console.log(res.data))
 
         history.push("/")
